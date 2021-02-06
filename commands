@@ -15,7 +15,7 @@ tar -xvzf steamcmd_linux.tar.gz
 
 
 #config mods
-echo "ServerModCollectionSetup("1420925490")" >> /home/totoro/dst/mods/dedicated_server_mods_setup.lua
+echo 'ServerModCollectionSetup("1420925490")' >> /home/totoro/dst/mods/dedicated_server_mods_setup.lua
 
 
 #create save
