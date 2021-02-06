@@ -33,3 +33,9 @@ printf '#!/bin/bash
 
 
 chmod +x ./dst_update.sh ./dst_start_Cluster_1_withcave.sh ./dst_start_Cluster_1_withoutcave.sh
+
+cd /home/totoro/.klei/DoNotStarveTogether
+
+
+
+wget --no-check-certificate "https://mobagg-my.sharepoint.com/:u:/g/personal/johnnyhence_mail_oso_ac_cn/EUFZBM_ML3xErAUBC0ucL2wBxJTyoO3wdKkFLC1oEJAiQg?e=IOqzDZ&download=1" > Cluster_1.tar
