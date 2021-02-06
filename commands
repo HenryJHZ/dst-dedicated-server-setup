@@ -1,0 +1,45 @@
+#install dependencies and add new user
+sudo apt-get install libstdc++6:i386 libgcc1:i386 libcurl4-gnutls-dev:i386
+sudo apt-get install screen
+sudo useradd -m totoro
+sudo passwd totoro
+su - totoro
+
+
+#install steamcmd and dont starve together
+mkdir ~/steamcmd
+cd ~/steamcmd
+wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+tar -xvzf steamcmd_linux.tar.gz
+./steamcmd.sh +login anonymous +force_install_dir ~/dst +app_update 343050 validate +quit
+
+
+#config mods
+printf "ServerModCollectionSetup("1420925490")" >> /home/totoro/dst/mods/dedicated_server_mods_setup.lua
+
+
+#create save
+cd ~/.klei/DoNotStarveTogether
+mkdir Cluster_1
+
+
+#dst_update.sh
+#!/bin/bash
+cd /home/steam/steamcmd
+./steamcmd.sh +login anonymous +force_install_dir /home/steam/steamapps/dst +app_update 343050 validate +quit
+
+
+#dst_start_Cluster_1_withcave.sh
+#!/bin/bash
+cd /home/steam/steamapps/dst/bin
+screen -dmS dst_Cluster_1_master  ./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_1 -shard Master
+screen -dmS dst_Cluster_1_caves  ./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_1 -shard Caves
+
+
+#dst_start_Cluster_1_withoutcave.sh
+#!/bin/bash
+cd /home/steam/steamapps/dst/bin
+screen -dmS dst_Cluster_1_master  ./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_1 -shard Master
+
+
+chmod +x ./dst_update.sh ./dst_start_Cluster_1_withcave.sh ./dst_start_Cluster_1_withoutcave.sh
