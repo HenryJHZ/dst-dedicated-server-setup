@@ -12,23 +12,23 @@ mkdir ~/steamcmd
 cd ~/steamcmd
 wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 tar -xvzf steamcmd_linux.tar.gz
-./steamcmd.sh +login anonymous +force_install_dir /home/steam/steamapps/dst +app_update 343050 validate +quit
+./steamcmd.sh +login anonymous +force_install_dir /home/totoro/steamapps/dst +app_update 343050 validate +quit
 
 
 #config mods
-echo 'ServerModCollectionSetup("1420925490")' >> /home/totoro/dst/mods/dedicated_server_mods_setup.lua
+echo 'ServerModCollectionSetup("1420925490")' >> /home/totoro/steamapps/dst/mods/dedicated_server_mods_setup.lua
 
 cd /home/totoro
 
 printf '#!/bin/bash \ncd /home/steam/steamcmd \n./steamcmd.sh +login anonymous +force_install_dir /home/steam/steamapps/dst +app_update 343050 validate +quit' > dst_update.sh
 
 printf '#!/bin/bash
-\ncd /home/steam/steamapps/dst/bin
+\ncd /home/totoro/steamapps/dst/bin
 \nscreen -dmS dst_Cluster_1_master  ./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_1 -shard Master
 \nscreen -dmS dst_Cluster_1_caves  ./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_1 -shard Caves' >dst_start_Cluster_1_withcave.sh
 
 printf '#!/bin/bash
-\ncd /home/steam/steamapps/dst/bin
+\ncd /home/totoro/steamapps/dst/bin
 \nscreen -dmS dst_Cluster_1_master  ./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_1 -shard Master' >dst_start_Cluster_1_withoutcave.sh
 
 
