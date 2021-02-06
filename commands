@@ -38,4 +38,4 @@ cd /home/totoro/.klei/DoNotStarveTogether
 
 
 
-wget --no-check-certificate "" > Cluster_1.tar
+wget --no-check-certificate "&download=1" > Cluster_1.tar
